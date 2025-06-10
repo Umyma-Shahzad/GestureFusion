@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GestureFusion</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>GestureFusion</h1>
+    <h4>A New Era of Gesture-Driven User Interfaces</h4>
+    <div class="button-row">
+        <button onclick="startDrawing()">Air Drawing Canvas</button>
+        <button onclick="startOpticalFlow()">Optical Flow Detection</button>
+        <button onclick="startFilter()">Real-Time Filters</button>
+        <button onclick="startFaceDetection()">Face and Eyes Detection</button>
+        <button onclick="startVolumeControl()">Volume Control</button>
+        <button onclick="startMouseControl()">Virtual Mouse</button>
+    </div>
+
+    <!-- Air Drawing -->
+    <div id="canvasContainer" style="display:none; margin-top: 20px;">
+        <h2>Air Drawing Canvas</h2>
+        <img id="videoFeedDrawing" width="650">
+        <div class="button-row">
+            <button onclick="saveCanvas()">Save</button>
+            <button onclick="closeDrawing()">Close</button>
+        </div>
+    </div>
+
+    <!-- Optical Flow -->
+    <div id="flowContainer" style="display:none; margin-top: 20px;">
+        <h2>Optical Flow Detection</h2>
+        <img id="videoFeedFlow" width="650">
+        <div class="button-row">
+            <button onclick="closeFlow()">Close</button>
+        </div>
+    </div>
+
+    <!-- Real-Time Filters -->
+    <div id="filterContainer" style="display:none; margin-top: 20px;">
+        <h2>Real-Time Filters</h2>
+        <img id="videoFeedFilter" width="650">
+        <div class="button-row">
+            <button onclick="setFilter('original')">Original</button>
+            <button onclick="setFilter('gray')">Grayscale</button>
+            <button onclick="setFilter('blur')">Blur</button>
+            <button onclick="setFilter('edges')">Edges</button>
+            <button onclick="setFilter('sharpen')">Sharpen</button>
+            <button onclick="closeFilter()">Close</button>
+        </div>
+    </div>
+
+    <!-- Face Detection -->
+    <div id="faceContainer" style="display:none; margin-top: 20px;">
+        <h2>Face and Eyes Detection</h2>
+        <img id="videoFeedFace" width="650">
+        <div class="button-row">
+            <button onclick="closeFace()">Close</button>
+        </div>
+    </div>
+
+    <!-- Volume Control -->
+    <div id="volumeContainer" style="display:none; margin-top: 20px;">
+        <h2>Volume Control</h2>
+        <img id="videoFeedVolume" width="650">
+        <div class="button-row">
+            <button onclick="closeVolume()">Close</button>
+        </div>
+    </div>
+
+    <!-- Mouse Control -->
+    <div id="mouseContainer" style="display:none; margin-top: 20px;">
+        <h2>Virtual Mouse</h2>
+        <img id="videoFeedMouse" width="650">
+        <div class="button-row">
+            <button onclick="closeMouse()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function stopAllStreams() {
+            closeDrawing();
+            closeFlow();
+            closeFilter();
+            closeFace();
+            closeVolume();
+            closeMouse();
+        }
+
+        function startDrawing() {
+            stopAllStreams();
+            document.getElementById('canvasContainer').style.display = 'block';
+            document.getElementById('videoFeedDrawing').src = '/video_feed_drawing';
+            fetch('/start_camera_drawing', { method: 'POST' });
+        }
+
+        function saveCanvas() {
+            fetch('/save_canvas', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => alert(data.success ? "Saved: " + data.filename : "Save failed"));
+        }
+
+        function closeDrawing() {
+            document.getElementById('videoFeedDrawing').src = '';
+            document.getElementById('canvasContainer').style.display = 'none';
+            fetch('/stop_camera_drawing', { method: 'POST' });
+        }
+
+        function startOpticalFlow() {
+            stopAllStreams();
+            document.getElementById('flowContainer').style.display = 'block';
+            document.getElementById('videoFeedFlow').src = '/video_feed_flow';
+            fetch('/start_camera_flow', { method: 'POST' });
+        }
+
+        function closeFlow() {
+            document.getElementById('videoFeedFlow').src = '';
+            document.getElementById('flowContainer').style.display = 'none';
+            fetch('/stop_camera_flow', { method: 'POST' });
+        }
+
+        function startFilter() {
+            stopAllStreams();
+            document.getElementById('filterContainer').style.display = 'block';
+            document.getElementById('videoFeedFilter').src = '/video_feed_filter';
+            fetch('/start_camera_filter', { method: 'POST' });
+        }
+
+        function setFilter(mode) {
+            fetch('/set_filter_mode', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode })
+            });
+        }
+
+        function closeFilter() {
+            document.getElementById('videoFeedFilter').src = '';
+            document.getElementById('filterContainer').style.display = 'none';
+            fetch('/stop_camera_filter', { method: 'POST' });
+        }
+
+        function startFaceDetection() {
+            stopAllStreams();
+            document.getElementById('faceContainer').style.display = 'block';
+            document.getElementById('videoFeedFace').src = '/video_feed_face';
+            fetch('/start_camera_face', { method: 'POST' });
+        }
+
+        function closeFace() {
+            document.getElementById('videoFeedFace').src = '';
+            document.getElementById('faceContainer').style.display = 'none';
+            fetch('/stop_camera_face', { method: 'POST' });
+        }
+
+        function startVolumeControl() {
+            stopAllStreams();
+            document.getElementById('volumeContainer').style.display = 'block';
+            document.getElementById('videoFeedVolume').src = '/video_feed_volume';
+            fetch('/start_camera_volume', { method: 'POST' });
+        }
+
+        function closeVolume() {
+            document.getElementById('videoFeedVolume').src = '';
+            document.getElementById('volumeContainer').style.display = 'none';
+            fetch('/stop_camera_volume', { method: 'POST' });
+        }
+
+        function startMouseControl() {
+            stopAllStreams();
+            document.getElementById('mouseContainer').style.display = 'block';
+            document.getElementById('videoFeedMouse').src = '/video_feed_mouse';
+            fetch('/start_camera_mouse', { method: 'POST' });
+        }
+
+        function closeMouse() {
+            document.getElementById('videoFeedMouse').src = '';
+            document.getElementById('mouseContainer').style.display = 'none';
+            fetch('/stop_camera_mouse', { method: 'POST' });
+        }
+    </script>
+</body>
+</html>
