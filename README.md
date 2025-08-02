@@ -39,7 +39,7 @@
 
 1. **Clone the repo**:
    ```bash
-   git clone https://github.com/Umyma-Shahzad/GestureFusion.git
+   git clone https://github.com/Umyma-Shahzad/GestureFusion-CVProject.git
    cd GestureFusion
    
 2. **Install Dependencies:**
@@ -56,40 +56,6 @@
 
      http://127.0.0.1:5000
   
----
-
-## 📁 **Project Structure**
-
-GestureFusion/
-
-├── app.py
-
-├── requirements.txt
-
-├── templates/
-
-│   └── index.html
-
-├── static/
-
-│   └── style.css
-
-├── AirDrawingCanvas.py
-
-├── Filters.py
-
-├── HandTrackingModule.py
-
-├── face_detection.py
-
-├── LucasKanadeMotionDetection.py
-
-├── volume_control.py
-
-├── mouse_control.py
-
-└── saved_drawings/
-
 ---
 
 ## 🧠 **Concepts Used**
