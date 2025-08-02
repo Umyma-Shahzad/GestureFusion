@@ -44,32 +44,50 @@
 2. **Install Dependencies:**
 ```bash
   pip install -r requirements.txt
+```
 
 3. **Run Application:**
+
 ```bash
   python app.py
-
+```
 4. **Open your browser and navigate to:**
 
-  http://127.0.0.1:5000
+     http://127.0.0.1:5000
+  
 ---
 ## 📁 **Project Structure**
 
 GestureFusion/
+
 ├── app.py
+
 ├── requirements.txt
+
 ├── templates/
+
 │   └── index.html
+
 ├── static/
+
 │   └── style.css
+
 ├── AirDrawingCanvas.py
+
 ├── Filters.py
+
 ├── HandTrackingModule.py
+
 ├── face_detection.py
+
 ├── LucasKanadeMotionDetection.py
+
 ├── volume_control.py
+
 ├── mouse_control.py
+
 └── saved_drawings/
+
 ---
 
 ## 🧠 **Concepts Used**
@@ -93,9 +111,10 @@ Contributions are welcome! Open an issue or pull request for any improvements, b
 ---
 
 ## 📬 **Contact**
-GitHub: @Umyma-Shahzad
 
 Email: umymashahzad02@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/umyma-shahzad
 
 ---
 ## 🙏 Acknowledgments
@@ -106,7 +125,10 @@ Email: umymashahzad02@gmail.com
 ---
 
 ## 🏷️ **Keywords**
-computer vision • gesture control • opencv • face detection • air drawing • real-time filters • virtual mouse • volume control • flask app • human-computer interaction
+
+• computer vision • gesture control • opencv • face detection • air drawing • real-time filters • virtual mouse • volume control • flask app • human-computer interaction •computer vision project
+
 ---
-**⭐ Don't forget to star the repo if you like it!**
+
+## **⭐ Don't forget to star the repo if you like it!**
 
