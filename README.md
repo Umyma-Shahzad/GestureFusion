@@ -5,6 +5,7 @@
 🌟 Built as a final project for the **Computer Vision** course, GestureFusion is designed to **demonstrate real-time gesture recognition**, **dynamic image filtering**, and **intuitive visualizations** — combining the power of AI, OpenCV, and frontend development.
 
 ---
+
 ## 🚀 Features
 
 - 🖌️ **Air Drawing Canvas** – Draw in the air using hand gestures
@@ -56,6 +57,7 @@
      http://127.0.0.1:5000
   
 ---
+
 ## 📁 **Project Structure**
 
 GestureFusion/
@@ -105,7 +107,8 @@ GestureFusion/
   - Flask Web Integration
 
 ---
-## 🤝 Contributing
+
+## 🤝 Contributions
 Contributions are welcome! Open an issue or pull request for any improvements, bug fixes, or new features.
 
 ---
@@ -117,11 +120,13 @@ Email: umymashahzad02@gmail.com
 LinkedIn: https://www.linkedin.com/in/umyma-shahzad
 
 ---
+
 ## 🙏 Acknowledgments
 
 - Mediapipe by Google for fast and accurate hand tracking
 
 - Streamlit for making ML app deployment easy and beautiful
+- 
 ---
 
 ## 🏷️ **Keywords**
