@@ -126,7 +126,7 @@ LinkedIn: https://www.linkedin.com/in/umyma-shahzad
 - Mediapipe by Google for fast and accurate hand tracking
 
 - Streamlit for making ML app deployment easy and beautiful
-- 
+  
 ---
 
 ## 🏷️ **Keywords**
